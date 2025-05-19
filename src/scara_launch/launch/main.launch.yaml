@@ -1,0 +1,25 @@
+launch:
+  - arg:
+      name: "dt"
+      default: "0.01"
+
+  # - node:
+  #     pkg: "rviz2"
+  #     exec: "rviz2"
+  #     name: "rviz2"
+
+  - node:
+      pkg: "scara_sim"
+      exec: "sim_node"
+      name: "sim_node_0"
+      param:
+        - name: "dt"
+          value: "$(var dt)"
+
+  - node:
+      pkg: "scara_ctrl"
+      exec: "controller_node"
+      name: "controller_node_0"
+      param:
+        - name: "dt"
+          value: "$(var dt)"

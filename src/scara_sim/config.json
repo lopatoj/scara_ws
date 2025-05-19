@@ -1,0 +1,26 @@
+{
+    "url": "https://cad.onshape.com/documents/538cbb797ec2882aad06761a/w/d99b40142a9e4b5a7e4a8408/e/db9cba3c828b57786e6d6ec4",
+    "output_format": "urdf",
+    "output_filename": "description/robot",
+    "assets_directory": "meshes",
+    "package_name": "scara_sim",
+    "robot_name": "scara",
+    "joint_properties": {
+        "joint1": {
+            "type": "continuous",
+            "friction": 0.0,
+            "max_effort": 50.0,
+            "max_velocity": 50.0
+        },
+        "joint2": {
+            "friction": 0.0,
+            "max_effort": 50.0,
+            "max_velocity": 50.0
+        },
+        "joint3": {
+            "friction": 0.0,
+            "max_effort": 50.0,
+            "max_velocity": 50.0
+        }
+    }
+}

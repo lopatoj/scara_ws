@@ -1,0 +1,128 @@
+<?xml version="1.0" ?>
+<!-- Generated using onshape-to-robot -->
+<!-- Onshape https://cad.onshape.com/documents/538cbb797ec2882aad06761a/w/d99b40142a9e4b5a7e4a8408/e/db9cba3c828b57786e6d6ec4 -->
+<robot name="scara">
+    <!-- Link base -->
+    <link name="base">
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0"/>
+            <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+        </inertial>
+        <!-- Part base -->
+        <visual>
+            <origin xyz="3.49943e-18 0 0" rpy="0 6.12323e-17 1.5708"/>
+            <geometry>
+                <mesh filename="package://scara_sim/meshes/base.stl"/>
+            </geometry>
+            <material name="base_material">
+                <color rgba="1 1 1 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="3.49943e-18 0 0" rpy="0 6.12323e-17 1.5708"/>
+            <geometry>
+                <mesh filename="package://scara_sim/meshes/base.stl"/>
+            </geometry>
+        </collision>
+    </link>
+    <!-- Link link1 -->
+    <link name="link1">
+        <inertial>
+            <origin xyz="0.0852855 -1.75451e-17 0.00981877" rpy="0 0 0"/>
+            <mass value="0.810959"/>
+            <inertia ixx="0.000250329" ixy="-1.71425e-09" ixz="4.05197e-06" iyy="0.0021349" iyz="-6.90014e-58" izz="0.00207147"/>
+        </inertial>
+        <!-- Part link1 -->
+        <visual>
+            <origin xyz="0.0852855 -1.73472e-17 0.00981877" rpy="0 -3.42114e-49 -2.55547e-53"/>
+            <geometry>
+                <mesh filename="package://scara_sim/meshes/link1.stl"/>
+            </geometry>
+            <material name="link1_material">
+                <color rgba="1 1 1 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0.0852855 -1.73472e-17 0.00981877" rpy="0 -3.42114e-49 -2.55547e-53"/>
+            <geometry>
+                <mesh filename="package://scara_sim/meshes/link1.stl"/>
+            </geometry>
+        </collision>
+    </link>
+    <!-- Link link2 -->
+    <link name="link2">
+        <inertial>
+            <origin xyz="0.08255 3.83367e-17 0.00935103" rpy="0 0 0"/>
+            <mass value="0.429371"/>
+            <inertia ixx="6.81335e-05" ixy="-1.82839e-10" ixz="0" iyy="0.00123028" iyz="0" izz="0.00125769"/>
+        </inertial>
+        <!-- Part link2 -->
+        <visual>
+            <origin xyz="0.08255 1.73472e-17 0.00935103" rpy="3.14159 -0 -7.41508e-53"/>
+            <geometry>
+                <mesh filename="package://scara_sim/meshes/link2.stl"/>
+            </geometry>
+            <material name="link2_material">
+                <color rgba="1 1 1 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0.08255 1.73472e-17 0.00935103" rpy="3.14159 -0 -7.41508e-53"/>
+            <geometry>
+                <mesh filename="package://scara_sim/meshes/link2.stl"/>
+            </geometry>
+        </collision>
+    </link>
+    <!-- Link link3 -->
+    <link name="link3">
+        <inertial>
+            <origin xyz="-1.33152e-19 2.74445e-33 -0.110087" rpy="0 0 0"/>
+            <mass value="0.0764384"/>
+            <inertia ixx="0.000319031" ixy="0" ixz="0" iyy="0.000319031" iyz="0" izz="1.53189e-06"/>
+        </inertial>
+        <!-- Part link3 -->
+        <visual>
+            <origin xyz="0 -3.88825e-19 -0.110087" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://scara_sim/meshes/link3.stl"/>
+            </geometry>
+            <material name="link3_material">
+                <color rgba="1 1 1 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 -3.88825e-19 -0.110087" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://scara_sim/meshes/link3.stl"/>
+            </geometry>
+        </collision>
+    </link>
+    <!-- Joint from link2 to link3 -->
+    <joint name="joint3" type="prismatic">
+        <origin xyz="0.1651 5.89806e-17 0.0210455" rpy="-3.69779e-32 -5.472e-33 1.3329e-36"/>
+        <parent link="link2"/>
+        <child link="link3"/>
+        <axis xyz="0 0 1"/>
+        <limit effort="50" velocity="50" lower="-0" upper="0.2159"/>
+        <joint_properties friction="0.0"/>
+    </joint>
+    <!-- Joint from link1 to link2 -->
+    <joint name="joint2" type="revolute">
+        <origin xyz="0.1651 -5.89806e-17 0.01524" rpy="-1.47911e-31 -4.46816e-32 -1.3129e-48"/>
+        <parent link="link1"/>
+        <child link="link2"/>
+        <axis xyz="0 0 1"/>
+        <limit effort="50" velocity="50" lower="-3" upper="3"/>
+        <joint_properties friction="0.0"/>
+    </joint>
+    <!-- Joint from base to link1 -->
+    <joint name="joint1" type="continuous">
+        <origin xyz="-1.38778e-17 1.16648e-17 0.1905" rpy="-6.12323e-17 -2.31112e-33 -1.3329e-36"/>
+        <parent link="base"/>
+        <child link="link1"/>
+        <axis xyz="0 0 1"/>
+        <limit effort="50" velocity="50" lower="0" upper="0"/>
+        <joint_properties friction="0.0"/>
+    </joint>
+</robot>
