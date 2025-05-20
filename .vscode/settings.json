@@ -1,9 +1,15 @@
 {
     "python.autoComplete.extraPaths": [
+        "/home/lopatoj/scara_ws/install/scara_launch/lib/python3.10/site-packages",
+        "/home/lopatoj/scara_ws/install/scara_sim/lib/python3.10/site-packages",
+        "/home/lopatoj/scara_ws/install/scara_ctrl/lib/python3.10/site-packages",
         "/opt/ros/humble/lib/python3.10/site-packages",
         "/opt/ros/humble/local/lib/python3.10/dist-packages"
     ],
     "python.analysis.extraPaths": [
+        "/home/lopatoj/scara_ws/install/scara_launch/lib/python3.10/site-packages",
+        "/home/lopatoj/scara_ws/install/scara_sim/lib/python3.10/site-packages",
+        "/home/lopatoj/scara_ws/install/scara_ctrl/lib/python3.10/site-packages",
         "/opt/ros/humble/lib/python3.10/site-packages",
         "/opt/ros/humble/local/lib/python3.10/dist-packages"
     ]
